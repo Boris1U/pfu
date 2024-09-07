@@ -1,0 +1,25 @@
+@startuml
+actor "Super Admin" as SuperAdmin
+actor "Admin" as Admin
+actor "Operator" as Operator
+actor "Merchant" as Merchant
+actor "Trader" as Trader
+actor "Agent" as Agent
+
+package "Web Application System" {
+  [Frontend Interface] as Frontend
+  [Backend Server] as Backend
+  [Database] as Database
+}
+
+SuperAdmin --> Frontend: Управление системными настройками
+Admin --> Frontend: Управление пользователями, ролями и разрешениями
+Operator --> Frontend: Контроль ордеров
+Merchant --> Frontend: Магазины
+Trader --> Frontend: Поставщик реквизитов
+Agent --> Frontend: Реферал
+
+Frontend --> Backend: Запросы
+Backend --> Database: CRUD операции
+
+@enduml
